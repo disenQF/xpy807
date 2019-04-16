@@ -4,7 +4,7 @@ Database Access Object
 import pymysql
 from pymysql.cursors import DictCursor
 
-config = {
+_config = {
     'host': '127.0.0.1',
     'port': 3306,
     'user': 'root',
@@ -15,7 +15,7 @@ config = {
 
 class DB:
     def __init__(self):
-        self.conn = pymysql.connect(**config)
+        self.conn = pymysql.connect(**_config)
         print('--connect ok--')
 
     def __enter__(self):

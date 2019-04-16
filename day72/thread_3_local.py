@@ -21,13 +21,14 @@ def new_add(m):
     global v
     print(current_thread().name, '准备开户: ')
     v.money = 0  # 向本地变量中添加一个money
+    v.name = current_thread().name
 
     """开户、并存钱m """
-    print(current_thread().name,
+    print(v.name,
           '存入 %s 钱' % m, '余额 %s 钱' % v.money)
     v.money += m
     time.sleep(1)
-    print(current_thread().name,
+    print(v.name,
           '余额 %s 钱' % v.money)
 
 
