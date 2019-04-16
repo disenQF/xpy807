@@ -1,0 +1,17 @@
+REPOSITORY,TAG,IMAGE,ID,CREATED,SIZE
+mariadb,latest,97df12fa9319,13,days ago,369MB
+mysql,latest,7bb2586065cd,2,weeks ago,477MB
+centos,latest,9f38484d220f,4,weeks ago,202MB
+ubuntu/ssh,latest,af3439e7d4d2,4,months ago,519MB
+redis,latest,5958914cc558,4,months ago,94.9MB
+nginx,latest,568c4670fa80,4,months ago,109MB
+mongo,latest,525bd2016729,4,months ago,383MB
+rabbitmq,management,d69a5113ceae,5,months ago,149MB
+geerlingguy/docker-ubuntu1804-ansible,latest,571d4a05021c,5,months ago,283MB
+scrapinghub/portia,latest,777ae09b378d,6,months ago,1.34GB
+elasticsearch,latest,5acf0e8da90b,6,months ago,486MB
+registry,latest,2e2f252f3c88,7,months ago,33.3MB
+smartfarmcni/ubuntu18.04,latest,d75b01d4c230,7,months ago,3.11GB
+delron/elasticsearch-ik,2.4.6-1.0,095b6487fb77,11,months ago,689MB
+python,3.6.3,a8f7167de312,16,months ago,691MB
+ansible/centos7-ansible,latest,688353a31fde,2,years ago,447MB
