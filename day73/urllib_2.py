@@ -66,7 +66,7 @@ def post(url, data, headers):
     # 实现post请求 + 请求头
     # 设置Request的data参数时，就是post请求
     # data是字节码
-    data = urlencode(data)
+    data = urlencode(data) # 生成form表单的参数编码，application/x-www-form-urlencoded
     request = Request(url, data.encode('utf-8'), headers)
 
     # 发起请求
