@@ -83,6 +83,7 @@ def save_img(url):
 def async_download(url):
     Thread(target=save_img, args=(url, )).start()
 
+
 if __name__ == '__main__':
     # download('https://www.gushiwen.org/')
     # save_url('https://www.gushiwen.org/', '1.html')
