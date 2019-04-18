@@ -46,6 +46,7 @@ def request(url, data: dict, headers=None):
     print(html_txt)
 
 
+
 if __name__ == '__main__':
     login_url = 'https://so.gushiwen.org/user/login.aspx?from=http%3a%2f%2fso.gushiwen.org%2fuser%2fcollect.aspx'
     collect_url = 'https://so.gushiwen.org/user/collect.aspx'
@@ -59,6 +60,7 @@ if __name__ == '__main__':
     result = ydm_api.ydm('code.png')
     print('验证码的结果：', result)
     data = {
+        'action':'',
         'from':'http://so.gushiwen.org/user/collect.aspx',
         'email': '610039018@qq.com',
         'pwd': 'disen8888',

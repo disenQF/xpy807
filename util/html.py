@@ -5,6 +5,7 @@ def to_html(resp_bytes, charset='utf-8'):
     # 将http 响应的字节码数据转成文本的html
     html = None
     try:
+        # 在Window10中utf-8-sig
         html = resp_bytes.decode(charset)
     except:
         try:
@@ -20,7 +21,8 @@ def to_html(resp_bytes, charset='utf-8'):
 
 def get_charset(content_type):
     # 从Content-Type的请求头的信息中提取charset字符集
-    charset = re.findall(r'charset=(\w+)', content_type)
+    # 修复utf-8中的"-"不包含在\w中,要改成 "."
+    charset = re.findall(r'charset=(.+)', content_type)
     if charset:
         charset = charset[0]
     else:
