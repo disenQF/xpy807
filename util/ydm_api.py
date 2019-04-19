@@ -97,7 +97,6 @@ class YDMHttp:
 
 # 用户名（普通用户名）
 username = 'disen_normal'
-
 # 密码
 password = 'disen8888'
 
@@ -130,4 +129,3 @@ def ydm(filename):
     cid, result = yundama.decode(filename, codetype, timeout);
     print('cid: %s, result: %s' % (cid, result))
     return result
-    ######################################################################

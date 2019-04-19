@@ -46,21 +46,23 @@ def request(url, data: dict, headers=None):
     print(html_txt)
 
 
-
 if __name__ == '__main__':
     login_url = 'https://so.gushiwen.org/user/login.aspx?from=http%3a%2f%2fso.gushiwen.org%2fuser%2fcollect.aspx'
     collect_url = 'https://so.gushiwen.org/user/collect.aspx'
 
     # 验证码的图片
     code_url = 'https://so.gushiwen.org/RandCode.ashx'
-    urlretrieve(code_url, 'code.png') # 刷新并保存验证图片
+    # urlretrieve(code_url, 'code.png') # 刷新并保存验证图片
+    resp = opener.open(code_url)
+    with open('code.png', 'wb') as file:
+        file.write(resp.read())
+
 
     # 注意： ydm_api模块，需要安装requests库
     # pip install requests
     result = ydm_api.ydm('code.png')
     print('验证码的结果：', result)
     data = {
-        'action':'',
         'from':'http://so.gushiwen.org/user/collect.aspx',
         'email': '610039018@qq.com',
         'pwd': 'disen8888',
