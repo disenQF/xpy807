@@ -8,6 +8,19 @@ from dao_api.tearch_dao import  TeacherDao
 blue = Blueprint('TeacherApi', __name__)
 
 
+@blue.route('/query/', methods=('GET', ))
+def query():
+    # 获取请求参数： page=1, s=10
+    page = request.args.get('page')
+    s = request.args.get('s')
+
+    # 查询数据
+    dao = TeacherDao()
+    result = dao.query_all(int(page), int(s))  # 分页查询
+
+    return jsonify(result)
+
+
 @blue.route('/teacher/', methods=('GET', 'POST'))
 def teacher():
     print(request.remote_addr, '请求资源')

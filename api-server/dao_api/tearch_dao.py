@@ -4,10 +4,11 @@ class TeacherDao:
     def __init__(self):
         self.db = DB()
 
-    def query_all(self):
-        sql = 'select * from teacher'
+    def query_all(self, page=1, s=5):
+        sql = 'select * from teacher limit %s, %s'
+
         with self.db as c:
-            c.execute(sql)
+            c.execute(sql, args=((page-1)*s, s))
             result = list(c.fetchall())
 
         return result
