@@ -1,6 +1,6 @@
 import json
 
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, make_response
 from flask import request
 
 from dao_api.tearch_dao import  TeacherDao
@@ -10,12 +10,16 @@ blue = Blueprint('TeacherApi', __name__)
 
 @blue.route('/teacher/', methods=('GET', 'POST'))
 def teacher():
+    print(request.remote_addr, '请求资源')
     dao = TeacherDao()
 
     if request.method == 'GET':
         all_teachers = dao.query_all()
         dao.close()
-        return jsonify(all_teachers)
+
+        resp = make_response(jsonify(all_teachers))
+        resp.headers['Content-Type'] = 'application/json;charset=utf-8'
+        return resp
 
     if request.method == 'POST':
         # 上传的数据类型是json格式

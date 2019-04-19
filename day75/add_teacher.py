@@ -15,6 +15,7 @@ from urllib.request import Request, urlopen
 # 3）每一个资源都有四个标准的动作, GET/POST/PUT/DELETE
 # 4) 资源的数据格式都是以json或xml 传输
 
+
 def json_post(url:str, data:dict):
     json_str = json.dumps(data)
     json_bytes = json_str.encode('utf-8')

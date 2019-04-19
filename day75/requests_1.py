@@ -8,5 +8,7 @@ if __name__ == '__main__':
         'name': 'disen8888888'
     }
 
-    resp = requests.post(url, json=data)
+    resp = requests.post(url, json=data, proxies={
+        'https': '119.102.24.141:9999'
+    })
     print(resp.json())
