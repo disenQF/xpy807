@@ -32,6 +32,6 @@ if __name__ == '__main__':
     # 从免费的IP代理网站获取代理的ip、port、类型(http/https)
     proxies = {
         # 'HTTPS': '119.102.24.141:9999'
-        'HTTP': '119.102.29.228:9999'
+        'http': '119.102.29.228:9999'
     }
     get('https://zh-hans.ipshu.com/my_info', proxies)
