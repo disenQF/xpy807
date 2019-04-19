@@ -25,6 +25,7 @@ def delete(ip):
     resp = requests.request('DELETE', url)
     print(resp.json())
 
+
 if __name__ == '__main__':
     # data = {
     #     'ip': '10.12.152.211',
