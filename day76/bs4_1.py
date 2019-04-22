@@ -67,7 +67,8 @@ def parse(html):
             'salary': salary,
             'city': job_city,
             'years': job_years,
-            'education': edu_level
+            'education': edu_level,
+
         })
 
 
@@ -89,7 +90,9 @@ if __name__ == '__main__':
     url = 'https://www.zhipin.com/job_detail/'
     params = {
         "query": "python",
-        "city": "101110100"
+        "city": "101110100",
+        "page": "1",
+        "ka": "page-next"
     }
 
     download(url, params=params)
