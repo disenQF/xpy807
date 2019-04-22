@@ -1,0 +1,61 @@
+1. 多进程与多线程
+   多进程  multiprocessing->Process
+   多线程  threading -> Thread
+
+    创建、启动、等待的动作函数：
+    Process(target, args)/Thread(target, args)
+    start()
+    join()
+
+    进程是系统分配的内存、程序块等资源总称（又称之为系统执行单元），
+    在进程创建线程来执行程序。
+
+    进程之间是内存独立的，如果想进行进程间通信(IPC), 可以通过以下方式：
+    a. Pipe管道
+    b. Queue队列 -> multiprocessing.Queue
+    c. 共享内存 -> multiprocessing.Manager.Value/Array
+    d. 信号或socket
+
+    线程之间是共享进程的内存空间，
+    在每个线程中，使用线程本地变量，可以让变量->"线程私有化"
+    通过线程锁 Lock， 实现多个线程全安地操作共享变量（数据存储的对象）
+
+    通过条件变量 Condition， 可以在条件不成立的情况下，发出等待信号-> cond.wait()
+    当条件成立时，则发出通知(唤醒)信号 -> cond.notify()
+
+    每个进程中都存在GIL(Global Interpreter Lock)全局解释器锁，确定在某一时间点，只有一个线程在执行
+
+2. urllib
+   urllib.request-> urlopen()/urlretrieve()
+                 -> Request(url, data, headers)
+                 -> build_opener(*handlers)
+                 -> HTTPHandler
+                 -> HTTPCookieProcessor(http.cookiejar.CookieJar())
+                 -> ProxyHandler
+   urllib.parse  -> quote('str')/unquote()
+                 -> urlencode(dict)
+
+   http.client.HTTPResponse 对象的属性和方法
+                -> code/getCode()/getStatus()
+                -> getUrl()
+                -> headers / info()
+                -> getheader(key, defaultvalue)
+                -> read()/readline()/readlines()
+
+3. requests
+   requests.get()
+   requests.post()
+   requests.put()
+   requests.delete()
+   requests.request(url, data, json, headers, proxies)
+
+4. xpath解析
+   from lxml import etree
+
+   # Element -> get('key') 标签中key属性值, text 标签文本
+   root = etree.HTML(html_text)
+   root.xpath('//div/img/@src') # list['', '', ...]
+   root.xpath('//div/img')  # list[Element, Element, ]
+
+  
+

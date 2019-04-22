@@ -3,11 +3,11 @@
 """
 import requests
 
-def add_doc(type_name, doc_id=None, **doc):
+def add_doc(index_name, type_name, doc_id=None, **doc):
     if doc_id:
-        url = 'http://localhost:9200/stu/teacher/%s' % doc_id
+        url = 'http://localhost:9200/%s/%s/%s' % (index_name, type_name, doc_id)
     else:
-        url = 'http://localhost:9200/stu/teacher'
+        url = 'http://localhost:9200/%s/%s' % (index_name, type_name)
 
     resp = requests.post(url, json=doc)
     print(resp.json())
