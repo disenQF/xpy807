@@ -6,6 +6,7 @@
 """
 import time
 from selenium.webdriver import Chrome
+from selenium.webdriver.chrome.options import Options
 
 driver = Chrome('driver/chromedriver')
 url = 'https://qzone.qq.com/'
