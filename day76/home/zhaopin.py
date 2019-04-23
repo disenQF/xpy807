@@ -5,6 +5,8 @@ from selenium.webdriver.common import by
 from selenium.webdriver.support import ui
 from selenium.webdriver.support import expected_conditions
 
+from bs4 import BeautifulSoup
+
 """
 搜索Python岗位的数据接口：
 """
@@ -65,6 +67,7 @@ def download():
             driver.execute_script('var q = document.documentElement.scrollTop=%s' % ((i+1)*to_position) )
             time.sleep(0.5)
 
+        #  等待网页中soupager可以选择（可见）
         ui.WebDriverWait(driver, 60).until(
             expected_conditions.visibility_of_all_elements_located((by.By.CLASS_NAME, 'soupager')))
 
@@ -74,15 +77,13 @@ def download():
         # next_btns = driver.find_elements_by_xpath('//div[@class="soupager"]/button')
         next_btns = driver.find_element_by_class_name('soupager').find_elements_by_tag_name('button')
         next_page = next_btns[1] # 第二个按钮
-        print(next_page.rect, next_page.location)
-        # next_page.click()
-
+        print(next_page.rect, next_page.location, next_page.text)
+        # 向上回滚可见"下一页"按钮位置
         driver.execute_script('var q = document.documentElement.scrollTop=%s' % (int(next_page.location['y'])-200))
-        time.sleep(5)
+        time.sleep(2)
         next_page.click()
 
         time.sleep(2)
-
 
         page += 1
 
@@ -90,7 +91,21 @@ def download():
 
 
 def parse(html):  # 提取数据
-    pass
+    # bs4或xpath提取html网页中的数据
+    root = BeautifulSoup(html, 'lxml')
+
+    job_nodes = root.select('.contentpile__content__wrapper')
+    for job_node in job_nodes:
+        job_a = job_node.select_one('a')
+        job_href = job_a.attrs.get('href')
+        job_name = job_a.select_one('.contentpile__content__wrapper__item__info__box__jobname__title').text
+
+        company_a = job_a.select_one('.company_title')
+        company_href = company_a.attrs.get('href')
+        company_name = company_a.attrs.get('title')
+
+        print(job_href, job_name, company_href, company_name)
+
 
 if __name__ == '__main__':
     download()
