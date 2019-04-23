@@ -38,11 +38,12 @@ class GndySpider(scrapy.Spider):
             # 有可能会出现 None 没有extract()函数异常
             summary = table.xpath('./tr[last()]/td/text()').extract()[0]
 
-            yield {
+            # 发起详情页面的请求
+            yield Request(href, callback=self.parse_detail, meta={
                 'href': href,
                 'title': title,
                 'summary': summary
-            }
+            })
 
         # 获取下一页的连接
         try:
@@ -54,8 +55,16 @@ class GndySpider(scrapy.Spider):
             # 发起一个新的请求
             # 请求类 --> 响应类
             # scrapy.Request -> scrapy.http.response.HtmlResponse
-            yield Request(next_href, callback=self.parse )
+            yield Request(next_href, callback=self.parse, meta={
+
+            })
         except:
             pass
+
+    def parse_detail(self, response):
+        # 解析详情页面
+        # 通过 response.meta 获取 request传入的数据
+        # 提取图片、视频下载连接
+        pass
 
 
