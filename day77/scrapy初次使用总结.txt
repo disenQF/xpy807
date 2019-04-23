@@ -1,0 +1,55 @@
+一、 scrapy是什么
+  1.  scrapy 集成下载、解析、数据处理和下载调度器等功能为一体爬虫框架
+  2.  scrapy 提供两个爬虫类， scrapy.Spider, scrapy.CrawlSpider
+  3.  scrapy 由五大核心组件和两个中间件组成
+      五大核心组件：
+        - Engine 引擎， 其它四大组都是经过engine来处理的
+        - Spider 爬虫类
+        - Scheduler 调度器， 由Engine将下载任务都会放在调度器
+        - Donwloader 下载器，由engine取出下载任务，并调用下载器
+        - ItemPipeline 数据处理管道, 下载完成后，交给Spider来解析数据，
+                       并将数据经过engine传给pipeline
+
+      两个中间件： 爬虫中间件，  下载中间件
+
+二、 如何使用
+    1. 安装 scrapy框架
+       Window 下， 先安装Twisted和pywin32两个库
+       pip install scrapy
+
+    2. 创建爬虫项目
+       scrapy startproject 项目名
+
+    3. 创建爬虫
+        cd 项目名
+        scrapy genspider 爬虫名 网站的域名
+
+    4. 编写爬虫类
+       1） 修改爬虫类的入门的网址
+           start_urls = ['http://xxxxx/xxx/xxx']
+       2) 在 parse函数中，解析response的数据
+          response -> scrapy.http.HtmlResponse
+          response.xpath('//div/table') -> list[<Selector>, ..]
+          response.xpath('//div/table').extract() -> list[str, ..]
+
+          将解析的数据, 通过 yield 以字典的方式回传给 engine
+
+          提取下一页的连接，并创建 scrapy.Request(url, callback) 请求对象
+          再由 yield 回传给engine , 经过engine加入到下载队列（Scheduler）
+
+
+        response有哪些属性：
+            url
+            status  状态码
+            text     文本数据
+            body     字节数据
+            encoding  字符集编码
+            headers   响应头
+            meta      由request向response传递的数据->dict
+            request   发起请求的对象
+
+
+作业：1.  获取详情页面的图片和下载地址
+      2.  校花网信息爬取 (名称， 图片， 详情地址)
+
+      爬虫的所有信息，写入csv文件中

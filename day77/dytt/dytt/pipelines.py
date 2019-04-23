@@ -7,5 +7,11 @@
 
 
 class DyttPipeline(object):
+    def __init__(self):
+        self.csv_filename = 'dytt.csv'
+        self.existed_header = False
+
     def process_item(self, item, spider):
+        # item -> dict对象，是spider.parse() yield {} 输出的结果
+
         return item
