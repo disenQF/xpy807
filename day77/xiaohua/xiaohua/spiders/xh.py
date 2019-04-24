@@ -21,7 +21,8 @@ class XhSpider(scrapy.Spider):
             yield {
                 'name': name,
                 'info_url': href,
-                'img_url': img_src
+                'image_urls': [img_src],  # 图片下载的url
+                'images': ''  # 下载之后存储的位置
             }
 
         # 下一页

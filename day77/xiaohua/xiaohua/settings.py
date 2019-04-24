@@ -10,6 +10,8 @@
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 import sys
 
+import os
+
 BOT_NAME = 'xiaohua'
 
 SPIDER_MODULES = ['xiaohua.spiders']
@@ -63,11 +65,24 @@ DOWNLOAD_DELAY = 1
 #    'scrapy.extensions.telnet.TelnetConsole': None,
 # }
 
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# ImagesPipeline 存放图片使用的目录位置
+IMAGES_STORE = os.path.join(BASE_DIR, 'images')  # 图片存放的目录
+
+# 设置图片的缩略图
+IMAGES_THUMBS = {
+    'small': (50, 50),  # 小图
+    'big': (270, 270),  # 大图
+}
+
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     # 100 是优先级的数值， 数值越小，优先等级越高（优先执行）
     'xiaohua.pipelines.XiaohuaPipeline': 100,
+    'scrapy.pipelines.images.ImagesPipeline': 1,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
