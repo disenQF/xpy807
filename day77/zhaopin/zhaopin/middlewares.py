@@ -113,6 +113,7 @@ class SeleniumDownloader(object):
     自定义selenium的下载中间件
     实现网页请求由selenium 下载，不经过scrapy的下载器（Downloader）
     """
+
     def __init__(self):
         # 创建selenium的浏览器对象
         # window->   d:/drivers/chromedriver.exe
@@ -135,12 +136,24 @@ class SeleniumDownloader(object):
         ui.WebDriverWait(self.browser, 60).until(
             ec.visibility_of_all_elements_located((By.CLASS_NAME, 'soupager')))
 
+        # 获取页面标签的高度
+        soupager = self.browser.find_element_by_class_name('soupager')
+        soupager_height = soupager.location['y']
+
+        time.sleep(1)
+
         # 向下滚动
         # 滚动屏幕到底部
-        to_position = 1600
-        for i in range(10):
-            self.browser.execute_script('var q = document.documentElement.scrollTop=%s' % ((i + 1) * to_position))
+        current_height = 0
+        for i in range(20):
+            current_height = (i + 1) * 1000
+            if current_height >= soupager_height:
+                break
+
+            self.browser.execute_script('var q = document.documentElement.scrollTop=%s' % current_height)
             time.sleep(0.5)
+
+
 
         # 获取网页数据
         html = self.browser.page_source
@@ -149,5 +162,6 @@ class SeleniumDownloader(object):
                             body=html.encode(encoding='utf-8'),
                             encoding='utf-8')
 
-    def __del__(self):
-        self.browser.quit()
+
+def __del__(self):
+    self.browser.quit()
