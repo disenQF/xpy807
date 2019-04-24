@@ -8,6 +8,7 @@ import time
 from scrapy import signals
 from scrapy.http import HtmlResponse
 from selenium.webdriver import Chrome
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support import ui, expected_conditions as ec
 from selenium.webdriver.common.by import By
 
@@ -118,12 +119,21 @@ class SeleniumDownloader(object):
         # 创建selenium的浏览器对象
         # window->   d:/drivers/chromedriver.exe
         # linux->    /home/xxxx/drivers/chromedriver
-        self.browser = Chrome('/Users/apple/drivers/chromedriver')  # mac
+        # 设置chrome浏览为无头(headless)浏览器 -> 不打开浏览器窗口
+
+        options = Options()
+        options.add_argument('--headless')
+        options.add_argument('--disable-gpu')
+
+        # chrome_options 或 options
+        self.browser = Chrome('/Users/apple/drivers/chromedriver',
+                              options=options)  # mac
         self.close_ok = False  # 第一次弹出 窗口，需要点击『我知道了』关闭窗口
 
     def process_request(self, request, spider):
         # 将会由selenium的chrome浏览器来请求
         self.browser.get(request.url)
+        self.browser.save_screenshot('zhaopin.png')
 
         if not self.close_ok:
             # 关闭
@@ -138,13 +148,15 @@ class SeleniumDownloader(object):
 
         # 获取页面标签的高度
         soupager = self.browser.find_element_by_class_name('soupager')
+
+        # .location -> {'x':, 'y': }
+        # .rect  -> {'x': 0, 'y': 0,  'width': 990, 'height': 10001 }
         soupager_height = soupager.location['y']
 
         time.sleep(1)
 
         # 向下滚动
         # 滚动屏幕到底部
-        current_height = 0
         for i in range(20):
             current_height = (i + 1) * 1000
             if current_height >= soupager_height:
@@ -152,7 +164,6 @@ class SeleniumDownloader(object):
 
             self.browser.execute_script('var q = document.documentElement.scrollTop=%s' % current_height)
             time.sleep(0.5)
-
 
 
         # 获取网页数据
