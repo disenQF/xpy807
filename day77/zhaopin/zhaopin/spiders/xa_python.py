@@ -30,23 +30,21 @@ class XaPythonSpider(scrapy.Spider):
             company_href = company_a.attrs.get('href')
             company_name = company_a.attrs.get('title')
             """
-            try:
-                job_a = job_node.xpath('./a[1]')[0]
-                job_href = job_a.xpath('./@href').extract_first()
 
-                job_name_xpath = './/span[@class, "contentpile__content__wrapper__item__info__box__jobname__title"]/text()'
-                job_name = job_a.xpath(job_name_xpath).extract_first()
+            job_a = job_node.xpath('.//a[1]')[0]
+            job_href = job_a.xpath('./@href').extract_first()
 
-                yield {
-                    'job_href': job_href,
-                    'job_name': job_name
-                }
-            except:
-                pass
+            job_name_xpath = './/span[@class="contentpile__content__wrapper__item__info__box__jobname__title"]/text()'
+            job_name = job_a.xpath(job_name_xpath).extract_first()
 
-        # 请求下一页
-        if self.page < 10:
-            self.page += 1
-            next_url = response.url + '&p=%s' % self.page
+            yield {
+                'job_href': job_href,
+                'job_name': job_name
+            }
 
-            yield Request(next_url, callback=self.parse)
+    # # 请求下一页
+    # if self.page < 10:
+    #     self.page += 1
+    #     next_url = response.url + '&p=%s' % self.page
+    #
+    #     yield Request(next_url, callback=self.parse)
