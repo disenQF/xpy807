@@ -1,0 +1,28 @@
+1. 下载中间件的三个方法
+    process_request(self, request, spider)
+    当新的请求准备调用下载器下载时，调用的方法
+
+    process_response(self, request, response, spider)
+    当响应对象，准备返回给engine时，调用的方法
+
+    process_exception(self, request, exception, spider)
+    当请求过程中出现的异常，如 IgnoreRequest异常，则会调用此方法
+
+
+2. process_request(self,request, spider) 方法返回的四种可能
+   1) return None
+      继续由下载器下载当前请求对象
+
+   2) return Response
+      不经过下载器下载了，由自己实现下载任务
+      一般情况下，下载的是html网页，所以封装成HtmlResponse对象
+
+   3）return Request
+      将当前的下载请求封装成一个新的下载请求，并返回给engine,
+      再由engine放入到调度器中， 等待下一次下载
+
+   4) raise IgnoreRequest
+      取消当前的请求，不需要这个请求了
+      将会转到process_exception(self, request, exception, spider)
+
+
