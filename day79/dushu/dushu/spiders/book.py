@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import json
+
 import scrapy
 from scrapy.linkextractors import LinkExtractor
 from scrapy.spiders import CrawlSpider, Rule
@@ -31,5 +33,8 @@ class BookSpider(CrawlSpider):
 
         item['isbn'] = bdr.xpath('./table//tr[1]/td[2]/text()').get()
         item['publish_date'] = bdr.xpath('./table//tr[1]/td[4]/text()').get()
+
+        # 通过当前爬虫的日志记录器（book） 记录提到的数据item
+        self.logger.info(json.dumps(item))
 
         return item

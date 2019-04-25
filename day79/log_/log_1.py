@@ -1,6 +1,7 @@
 import logging
 from logging import Formatter, StreamHandler, FileHandler
 from logging.handlers import HTTPHandler
+from logging import LoggerAdapter
 
 import sys
 
@@ -18,6 +19,8 @@ def init_logger():
     handler1 = StreamHandler()
     handler1.setLevel(logging.INFO)
     handler1.setFormatter(formatter)
+
+
 
     handler2 = FileHandler('errors.log', encoding='utf-8')
     handler2.setLevel(logging.ERROR)

@@ -4,6 +4,7 @@
 #
 # See documentation in:
 # https://doc.scrapy.org/en/latest/topics/spider-middleware.html
+from logging import StreamHandler
 
 from scrapy import signals
 
@@ -53,6 +54,8 @@ class DushuSpiderMiddleware(object):
             yield r
 
     def spider_opened(self, spider):
+        # print(type(spider.logger)) logging.LoggerAdapter
+        spider.logger.logger.addHandler(StreamHandler())
         spider.logger.info('Spider opened: %s' % spider.name)
 
 
@@ -71,6 +74,7 @@ class DushuDownloaderMiddleware(object):
     def process_request(self, request, spider):
         # Called for each request that goes through the downloader
         # middleware.
+        spider.logger.info('正在下载: '+request.url)
 
         # Must either:
         # - return None: continue processing this request
@@ -92,6 +96,7 @@ class DushuDownloaderMiddleware(object):
     def process_exception(self, request, exception, spider):
         # Called when a download handler or a process_request()
         # (from other downloader middleware) raises an exception.
+        spider.logger.error('发生了异常:'+ str(exception))
 
         # Must either:
         # - return None: continue processing this exception

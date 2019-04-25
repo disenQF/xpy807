@@ -1,0 +1,253 @@
+2019-04-25 17:18:00 [scrapy.utils.log] INFO: Scrapy 1.6.0 started (bot: dushu)
+2019-04-25 17:18:01 [scrapy.utils.log] INFO: Versions: lxml 4.3.3.0, libxml2 2.9.9, cssselect 1.0.3, parsel 1.5.1, w3lib 1.20.0, Twisted 19.2.0, Python 3.6.1 (v3.6.1:69c0db5050, Mar 21 2017, 01:21:04) - [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)], pyOpenSSL 19.0.0 (OpenSSL 1.1.1b  26 Feb 2019), cryptography 2.6.1, Platform Darwin-18.5.0-x86_64-i386-64bit
+2019-04-25 17:18:01 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'dushu', 'CLOSESPIDER_ITEMCOUNT': '10', 'LOG_FILE': 'book.log', 'LOG_LEVEL': 'INFO', 'NEWSPIDER_MODULE': 'dushu.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['dushu.spiders']}
+2019-04-25 17:18:01 [scrapy.extensions.telnet] INFO: Telnet Password: a8eacdb08c2c5654
+2019-04-25 17:18:01 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.closespider.CloseSpider',
+ 'scrapy.extensions.logstats.LogStats']
+2019-04-25 17:18:01 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'dushu.middlewares.DushuDownloaderMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2019-04-25 17:18:01 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'dushu.middlewares.DushuSpiderMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2019-04-25 17:18:01 [scrapy.middleware] INFO: Enabled item pipelines:
+['dushu.pipelines.DushuPipeline']
+2019-04-25 17:18:01 [scrapy.core.engine] INFO: Spider opened
+2019-04-25 17:18:01 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-04-25 17:18:01 [book] INFO: Spider opened: book
+2019-04-25 17:18:01 [scrapy.utils.signal] ERROR: Error caught on signal handler: <bound method DushuSpiderMiddleware.spider_opened of <dushu.middlewares.DushuSpiderMiddleware object at 0x10f59a128>>
+Traceback (most recent call last):
+  File "/Users/apple/venv/xpy807/lib/python3.6/site-packages/twisted/internet/defer.py", line 151, in maybeDeferred
+    result = f(*args, **kw)
+  File "/Users/apple/venv/xpy807/lib/python3.6/site-packages/pydispatch/robustapply.py", line 55, in robustApply
+    return receiver(*arguments, **named)
+  File "/Users/apple/PycharmProjects/xpy807/day79/dushu/dushu/middlewares.py", line 57, in spider_opened
+    spider.logger.addHandler(StreamHandler())
+AttributeError: 'LoggerAdapter' object has no attribute 'addHandler'
+2019-04-25 17:18:01 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2019-04-25 17:19:01 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-04-25 17:19:36 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2019-04-25 17:19:36 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2019-04-25 17:19:36 [scrapy.crawler] INFO: Received SIGINT twice, forcing unclean shutdown
+2019-04-25 17:19:40 [scrapy.utils.log] INFO: Scrapy 1.6.0 started (bot: dushu)
+2019-04-25 17:19:40 [scrapy.utils.log] INFO: Versions: lxml 4.3.3.0, libxml2 2.9.9, cssselect 1.0.3, parsel 1.5.1, w3lib 1.20.0, Twisted 19.2.0, Python 3.6.1 (v3.6.1:69c0db5050, Mar 21 2017, 01:21:04) - [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)], pyOpenSSL 19.0.0 (OpenSSL 1.1.1b  26 Feb 2019), cryptography 2.6.1, Platform Darwin-18.5.0-x86_64-i386-64bit
+2019-04-25 17:19:40 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'dushu', 'CLOSESPIDER_ITEMCOUNT': '10', 'LOG_FILE': 'book.log', 'LOG_LEVEL': 'INFO', 'NEWSPIDER_MODULE': 'dushu.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['dushu.spiders']}
+2019-04-25 17:19:40 [scrapy.extensions.telnet] INFO: Telnet Password: 305203774bf5523f
+2019-04-25 17:19:40 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.closespider.CloseSpider',
+ 'scrapy.extensions.logstats.LogStats']
+2019-04-25 17:19:40 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'dushu.middlewares.DushuDownloaderMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2019-04-25 17:19:40 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'dushu.middlewares.DushuSpiderMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2019-04-25 17:19:41 [scrapy.middleware] INFO: Enabled item pipelines:
+['dushu.pipelines.DushuPipeline']
+2019-04-25 17:19:41 [scrapy.core.engine] INFO: Spider opened
+2019-04-25 17:19:41 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-04-25 17:19:41 [book] INFO: Spider opened: book
+2019-04-25 17:19:41 [book] INFO: Spider opened: book
+2019-04-25 17:19:41 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2019-04-25 17:19:45 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2019-04-25 17:19:45 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2019-04-25 17:19:46 [scrapy.crawler] INFO: Received SIGINT twice, forcing unclean shutdown
+2019-04-25 17:22:10 [scrapy.utils.log] INFO: Scrapy 1.6.0 started (bot: dushu)
+2019-04-25 17:22:10 [scrapy.utils.log] INFO: Versions: lxml 4.3.3.0, libxml2 2.9.9, cssselect 1.0.3, parsel 1.5.1, w3lib 1.20.0, Twisted 19.2.0, Python 3.6.1 (v3.6.1:69c0db5050, Mar 21 2017, 01:21:04) - [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)], pyOpenSSL 19.0.0 (OpenSSL 1.1.1b  26 Feb 2019), cryptography 2.6.1, Platform Darwin-18.5.0-x86_64-i386-64bit
+2019-04-25 17:22:10 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'dushu', 'CLOSESPIDER_ITEMCOUNT': '10', 'LOG_FILE': 'book.log', 'LOG_LEVEL': 'INFO', 'NEWSPIDER_MODULE': 'dushu.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['dushu.spiders']}
+2019-04-25 17:22:10 [scrapy.extensions.telnet] INFO: Telnet Password: 9ecbb02a38407492
+2019-04-25 17:22:10 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.closespider.CloseSpider',
+ 'scrapy.extensions.logstats.LogStats']
+2019-04-25 17:22:10 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'dushu.middlewares.DushuDownloaderMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2019-04-25 17:22:10 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'dushu.middlewares.DushuSpiderMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2019-04-25 17:22:10 [scrapy.middleware] INFO: Enabled item pipelines:
+['dushu.pipelines.DushuPipeline']
+2019-04-25 17:22:10 [scrapy.core.engine] INFO: Spider opened
+2019-04-25 17:22:10 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-04-25 17:22:10 [book] INFO: Spider opened: book
+2019-04-25 17:22:10 [book] INFO: Spider opened: book
+2019-04-25 17:22:10 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2019-04-25 17:22:50 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2019-04-25 17:22:50 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2019-04-25 17:22:50 [scrapy.crawler] INFO: Received SIGINT twice, forcing unclean shutdown
+2019-04-25 17:24:11 [scrapy.utils.log] INFO: Scrapy 1.6.0 started (bot: dushu)
+2019-04-25 17:24:11 [scrapy.utils.log] INFO: Versions: lxml 4.3.3.0, libxml2 2.9.9, cssselect 1.0.3, parsel 1.5.1, w3lib 1.20.0, Twisted 19.2.0, Python 3.6.1 (v3.6.1:69c0db5050, Mar 21 2017, 01:21:04) - [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)], pyOpenSSL 19.0.0 (OpenSSL 1.1.1b  26 Feb 2019), cryptography 2.6.1, Platform Darwin-18.5.0-x86_64-i386-64bit
+2019-04-25 17:24:11 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'dushu', 'CLOSESPIDER_ITEMCOUNT': '10', 'LOG_FILE': 'book.log', 'LOG_LEVEL': 'INFO', 'NEWSPIDER_MODULE': 'dushu.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['dushu.spiders']}
+2019-04-25 17:24:11 [scrapy.extensions.telnet] INFO: Telnet Password: f42b999fbc716c3d
+2019-04-25 17:24:11 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.closespider.CloseSpider',
+ 'scrapy.extensions.logstats.LogStats']
+2019-04-25 17:24:11 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'dushu.middlewares.DushuDownloaderMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2019-04-25 17:24:11 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'dushu.middlewares.DushuSpiderMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2019-04-25 17:24:11 [scrapy.middleware] INFO: Enabled item pipelines:
+['dushu.pipelines.DushuPipeline']
+2019-04-25 17:24:11 [scrapy.core.engine] INFO: Spider opened
+2019-04-25 17:24:11 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-04-25 17:24:11 [book] INFO: Spider opened: book
+2019-04-25 17:24:11 [book] INFO: Spider opened: book
+2019-04-25 17:24:11 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2019-04-25 17:24:28 [book] INFO: {"name": "\u690d\u7269\u5927\u6218\u50f5\u5c382\u673a\u5668\u4eba\u6f2b\u753b\u00b7\u63a2\u79d8\u53a8\u795e\u5c9b", "price": "34.00", "author": "\u7b11\u6c5f\u5357", "publisher": "\u4e2d\u56fd\u5c11\u5e74\u513f\u7ae5\u65b0\u95fb\u51fa\u7248\u603b\u793e", "isbn": "9787514853698", "publish_date": "2019-05-01"}
+2019-04-25 17:24:28 [book] INFO: {"name": "\u897f\u65b9\u653f\u6cbb\u601d\u60f3\u7684\u793e\u4f1a\u53f2\uff1a\u516c\u6c11\u5230\u9886\u4e3b", "price": "58.00", "author": null, "publisher": "\u8bd1\u6797\u51fa\u7248\u793e", "isbn": "9787544774291", "publish_date": "2019-04-01"}
+2019-04-25 17:24:28 [book] INFO: {"name": "\u897f\u65b9\u653f\u6cbb\u601d\u60f3\u7684\u793e\u4f1a\u53f2\uff1a\u81ea\u7531\u4e0e\u8d22\u4ea7", "price": "68.00", "author": null, "publisher": "\u8bd1\u6797\u51fa\u7248\u793e", "isbn": "9787544776677", "publish_date": "2019-04-01"}
+2019-04-25 17:24:31 [book] INFO: {"name": "\u65e0\u95ee\u57ce\u4e61\uff1a\u4e0a\u6d77\u677e\u6c5f\u6539\u9769\u7530\u91ce\u8c03\u67e5\u7eaa\u5b9e", "price": "56.80", "author": "\u90ed\u6d9b\u6d9b", "publisher": "\u65b0\u534e\u51fa\u7248\u793e", "isbn": "9787516644898", "publish_date": "2019-04-01"}
+2019-04-25 17:24:32 [book] INFO: {"name": "\u653e\u7fc1\u4e50\u5e9c\u7b8b\uff08\u7cbe\uff09", "price": "65.00", "author": "\u9646\u6e38", "publisher": "\u6d59\u6c5f\u53e4\u7c4d\u51fa\u7248\u793e", "isbn": "9787554014646", "publish_date": "2019-01-01"}
+2019-04-25 17:24:33 [book] INFO: {"name": "\u4e2d\u56fd\u5b66\u672f\u540d\u8457\u63d0\u8981\u7b2c\u516d\u5377\u00b7\u6c11\u56fd\u7f16\uff08\u5408\u8ba2\u672c\uff09", "price": "395.00", "author": null, "publisher": "\u590d\u65e6\u5927\u5b66\u51fa\u7248\u793e", "isbn": "9787309067934", "publish_date": "2019-02-01"}
+2019-04-25 17:24:33 [book] INFO: {"name": "\u80e1\u585e\u5c14\u53d1\u751f\u73b0\u8c61\u5b66\u5f15\u8bba", "price": "72.00", "author": "\u674e\u4e91\u98de", "publisher": "\u5317\u4eac\u5e08\u8303\u5927\u5b66\u51fa\u7248\u793e", "isbn": "9787303243709", "publish_date": "2019-02-01"}
+2019-04-25 17:24:33 [book] INFO: {"name": "\u795d\u96ea\u4fa0\u8bc4\u8bba\u96c6", "price": "46.00", "author": "\u795d\u96ea\u4fa0", "publisher": "\u4f5c\u5bb6\u51fa\u7248\u793e", "isbn": "9787521203707", "publish_date": "2019-05-01"}
+2019-04-25 17:24:33 [book] INFO: {"name": "\u5112\u85cf\uff08\u7cbe\u534e\u7f16 271\u96c6\u90e8\uff09", "price": "1200.00", "author": "\u8d75\u4f2f\u96c4", "publisher": "\u5317\u4eac\u5927\u5b66\u51fa\u7248\u793e", "isbn": "9787301119891", "publish_date": "2018-11-01"}
+2019-04-25 17:24:33 [book] INFO: {"name": "\u6d1e\u5ead\u6e56\u4e0a\u7684\u98ce\u5200\u5b50", "price": "45.00", "author": "\u738b\u5f00\u6797", "publisher": "\u6e56\u5357\u5c11\u5e74\u513f\u7ae5\u51fa\u7248\u793e", "isbn": "9787556241873", "publish_date": "2019-03-01"}
+2019-04-25 17:24:33 [scrapy.core.engine] INFO: Closing spider (closespider_itemcount)
+2019-04-25 17:24:33 [book] INFO: {"name": "\u4e2d\u56fd\u5b66\u672f\u540d\u8457\u63d0\u8981\u7b2c\u4e94\u5377\u00b7\u6e05\u4ee3\u7f16\uff08\u5408\u8ba2\u672c\uff09", "price": "450.00", "author": null, "publisher": "\u590d\u65e6\u5927\u5b66\u51fa\u7248\u793e", "isbn": "9787309067927", "publish_date": "2019-02-01"}
+2019-04-25 17:24:33 [book] INFO: {"name": "\u5b63\u98ce\u8bb2\u8d44\u6cbb\u901a\u9274\u91cc\u7684\u667a\u6167", "price": "45.00", "author": "\u5b63\u98ce", "publisher": "\u5e7f\u4e1c\u65c5\u6e38\u51fa\u7248\u793e", "isbn": "9787557016128", "publish_date": "2019-04-01"}
+2019-04-25 17:24:35 [book] INFO: {"name": "\u5b9d\u5b9d\u5582\u517b7\u5802\u8bfe\uff1a\u544a\u522b\u7126\u8651\u4ece\u98df\u80b2\u5f00\u59cb", "price": "68.00", "author": "\u5218\u9042\u8c26", "publisher": "\u5316\u5b66\u5de5\u4e1a\u51fa\u7248\u793e\u6709\u9650\u516c\u53f8", "isbn": "9787122339119", "publish_date": "2019-05-01"}
+2019-04-25 17:24:35 [book] INFO: {"name": "\u4f1a\u98de\u7684\u5c0f\u4f1e0-4\u5c81", "price": "25.00", "author": "\u5f90\u9c81", "publisher": "\u4e2d\u56fd\u5c11\u5e74\u513f\u7ae5\u65b0\u95fb\u51fa\u7248\u603b\u793e", "isbn": "9787514853162", "publish_date": "2019-05-01"}
+2019-04-25 17:24:35 [book] INFO: {"name": "\u80fd\u6e90\u5927\u6570\u636e\u65f6\u4ee3", "price": "89.00", "author": null, "publisher": "\u4eba\u6c11\u90ae\u7535\u51fa\u7248\u793e", "isbn": "9787115508010", "publish_date": "2019-03-01"}
+2019-04-25 17:24:35 [book] INFO: {"name": "\u805a\u5408\u7269\u57fa\uff1a\u5c42\u72b6\u7845\u9178\u76d0\u7eb3\u7c73\u590d\u5408\u5438\u9644\u6750\u6599\u5236\u5907\u6280\u672f\u4e0e\u5e94\u7528", "price": "118.00", "author": "\u5f20\u6653\u6d9b", "publisher": "\u79d1\u5b66\u51fa\u7248\u793e", "isbn": "9787030590732", "publish_date": "2018-06-01"}
+2019-04-25 17:24:35 [book] INFO: {"name": "\u5236\u56fe\u5e94\u7528\u4e60\u9898\u96c6", "price": "21.00", "author": "\u6881\u4f1a\u73cd", "publisher": "\u673a\u68b0\u5de5\u4e1a\u51fa\u7248\u793e", "isbn": "9787111614654", "publish_date": "2019-01-01"}
+2019-04-25 17:24:35 [book] INFO: {"name": "\u65e0\u5370\u826f\u54c1\u7684\u8212\u9002\u5c45\u5bb6\u6307\u5357", "price": "79.80", "author": null, "publisher": "\u534e\u4e2d\u79d1\u6280\u5927\u5b66\u51fa\u7248\u793e", "isbn": "9787568050517", "publish_date": "2019-04-01"}
+2019-04-25 17:24:37 [book] INFO: {"name": "\u56fd\u5bb6\u533b\u4fdd\u836f\u54c1\u4e34\u5e8a\u5e94\u7528\u624b\u518c\uff08\u4e2d\u6210\u836f 2017\u5e74\u7248\uff09", "price": "76.00", "author": "\u6885\u5168\u559c", "publisher": "\u4eba\u6c11\u536b\u751f\u51fa\u7248\u793e", "isbn": "9787117276726", "publish_date": "2019-04-01"}
+2019-04-25 17:24:40 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2019-04-25 17:24:41 [scrapy.crawler] INFO: Received SIGINT twice, forcing unclean shutdown
+2019-04-25 17:30:22 [scrapy.utils.log] INFO: Scrapy 1.6.0 started (bot: dushu)
+2019-04-25 17:30:22 [scrapy.utils.log] INFO: Versions: lxml 4.3.3.0, libxml2 2.9.9, cssselect 1.0.3, parsel 1.5.1, w3lib 1.20.0, Twisted 19.2.0, Python 3.6.1 (v3.6.1:69c0db5050, Mar 21 2017, 01:21:04) - [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)], pyOpenSSL 19.0.0 (OpenSSL 1.1.1b  26 Feb 2019), cryptography 2.6.1, Platform Darwin-18.5.0-x86_64-i386-64bit
+2019-04-25 17:30:22 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'dushu', 'CLOSESPIDER_ITEMCOUNT': '10', 'LOG_FILE': 'book.log', 'LOG_LEVEL': 'INFO', 'NEWSPIDER_MODULE': 'dushu.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['dushu.spiders']}
+2019-04-25 17:30:22 [scrapy.extensions.telnet] INFO: Telnet Password: 756adad0cd055aee
+2019-04-25 17:30:22 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.closespider.CloseSpider',
+ 'scrapy.extensions.logstats.LogStats']
+2019-04-25 17:30:22 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'dushu.middlewares.DushuDownloaderMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2019-04-25 17:30:22 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'dushu.middlewares.DushuSpiderMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2019-04-25 17:30:22 [scrapy.middleware] INFO: Enabled item pipelines:
+['dushu.pipelines.DushuPipeline']
+2019-04-25 17:30:22 [scrapy.core.engine] INFO: Spider opened
+2019-04-25 17:30:22 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-04-25 17:30:22 [book] INFO: Spider opened: book
+2019-04-25 17:30:22 [book] INFO: Spider opened: book
+2019-04-25 17:30:22 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2019-04-25 17:30:22 [book] INFO: 正在下载: http://www.dushu.com/robots.txt
+2019-04-25 17:30:25 [book] INFO: 正在下载: https://www.dushu.com/robots.txt
+2019-04-25 17:30:35 [book] INFO: 正在下载: http://www.dushu.com/book/
+2019-04-25 17:30:38 [book] INFO: 正在下载: https://www.dushu.com/book/
+2019-04-25 17:30:40 [book] INFO: 正在下载: https://www.dushu.com/book/1001.html
+2019-04-25 17:30:41 [book] INFO: 正在下载: https://www.dushu.com/book/13469598/
+2019-04-25 17:30:41 [book] INFO: 正在下载: https://www.dushu.com/book/1009.html
+2019-04-25 17:30:41 [book] INFO: 正在下载: https://www.dushu.com/book/1008.html
+2019-04-25 17:30:41 [book] INFO: 正在下载: https://www.dushu.com/book/1007.html
+2019-04-25 17:30:41 [book] INFO: 正在下载: https://www.dushu.com/book/1006.html
+2019-04-25 17:30:41 [book] INFO: 正在下载: https://www.dushu.com/book/1005.html
+2019-04-25 17:30:41 [book] INFO: 正在下载: https://www.dushu.com/book/1004.html
+2019-04-25 17:30:41 [book] INFO: 正在下载: https://www.dushu.com/book/1003.html
+2019-04-25 17:30:41 [book] INFO: 正在下载: https://www.dushu.com/book/1002.html
+2019-04-25 17:30:41 [book] INFO: 正在下载: https://www.dushu.com/book/13469589/
+2019-04-25 17:30:41 [book] INFO: 正在下载: https://www.dushu.com/book/13469590/
+2019-04-25 17:30:41 [book] INFO: 正在下载: https://www.dushu.com/book/13469591/
+2019-04-25 17:30:41 [book] INFO: 正在下载: https://www.dushu.com/book/13469592/
+2019-04-25 17:30:41 [book] INFO: 正在下载: https://www.dushu.com/book/13469593/
+2019-04-25 17:30:41 [book] INFO: 正在下载: https://www.dushu.com/book/13469594/
+2019-04-25 17:30:47 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2019-04-25 17:30:47 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2019-04-25 17:30:48 [scrapy.crawler] INFO: Received SIGINT twice, forcing unclean shutdown
