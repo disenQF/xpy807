@@ -1,0 +1,22 @@
+在scrapy框架中使用日志记录器
+
+1) 在每个爬虫类中，默认情况下，都有一个logger对象
+   在爬虫类的方法中(parse 方法)， 通过self.logger.info()/error()等相关的
+   方法的，来记录爬虫爬取数据的过程信息。
+
+   scrapy.Spider类中的logger是logging.LoggerAdapter类型
+
+   LoggerAdapter类，封装logger记录器的包装类，便于使用记录日志的相关方法
+
+2）在 settings.py文件可以设置日志的等级和启用FileHandler的日志文件
+    LOG_LEVEL = 'INFO'
+
+    LOG_FILE = 'book.log'
+
+3) 如果设置日志文件，则控制台则不会打印日志，即取消StreamHandler
+   可以启用中间件，在中间件的spider_opened()函数中获取logger日志对象
+   并添加StreamHandler.
+
+   def spider_opened(self, spider):
+       spider.logger.logger.addHandler(logging.StreamHandler())
+       pass
