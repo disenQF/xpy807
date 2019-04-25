@@ -16,7 +16,7 @@ select a.cn, c.name,
   max(a.score) max_sc,
   min(a.score) min_sc,
   avg(a.score) avg_sc,
-  sum(a.s1)/count(a.sn)    s1_rate,
+  sum(a.s1)/count(a.sn)   s1_rate,
   sum(a.s2)/count(a.sn)   s2_rate,
   sum(a.s3)/count(a.sn)   s3_rate,
   sum(a.s4)/count(a.sn)   s4_rate
@@ -29,3 +29,9 @@ from
   from SC ) a
   JOIN Course c on (c.cn = a.cn)
 GROUP BY a.cn, c.name;
+
+
+SELECT * from student
+WHERE
+month(age) = '12';
+

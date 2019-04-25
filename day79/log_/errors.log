@@ -1,0 +1,11 @@
+2019-04-25 16:26:33 CRITICAL <module> 35: 产生了critical信息， o_o
+2019-04-25 16:27:25 CRITICAL test_logger 33: 产生了critical信息， o_o
+2019-04-25 16:35:52 ERROR handle_global_except 44: [Errno 2] No such file or directory: 'abc.txt'
+2019-04-25 16:42:45 CRITICAL test_logger 42: 产生了critical信息， o_o
+2019-04-25 16:42:45 ERROR handle_global_except 51: [Errno 2] No such file or directory: 'abc.txt'
+2019-04-25 16:43:37 CRITICAL test_logger 42: 产生了critical信息， o_o
+2019-04-25 16:43:37 ERROR handle_global_except 51: [Errno 2] No such file or directory: 'abc.txt'
+2019-04-25 16:44:07 CRITICAL test_logger 42: 产生了critical信息， o_o
+2019-04-25 16:44:59 CRITICAL test_logger 42: 产生了critical信息， o_o
+2019-04-25 16:46:00 CRITICAL test_logger 42: 产生了critical信息， o_o
+2019-04-25 16:46:00 ERROR handle_global_except 51: [Errno 2] No such file or directory: 'abc.txt'

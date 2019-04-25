@@ -1,0 +1,72 @@
+一、 日志由四大部分组成
+
+    1. 日志记录器 logger
+       在程序中，使用logger 记录程序执行过程的日志信息
+       这些日志信息，可以用于运维监察程序运行状态。
+
+    2. 日志处理器 Handler
+       当记录器记录的日志信息后，需要处理器来处理。
+       一般使用 StreamHandler 在控制台输出
+       还可以使用HTTPHandler 将日志上传到日志服务器中（Flume 分布式日志服务）
+       当然使用 FileHandler 将日志信息写入到文件中
+
+    3. 日志的格式化  Formatter
+       将记录器记录的日志，按照一定的格式，交给处理器
+       格式包含：
+           asctime  日志发生的时间
+           pathname
+           filename
+           funcName
+           process   进程ID
+           thread    线程ID
+           message   日志的消息
+           levelname 日志等级的名称
+           lineno    日志发生的行号
+           name      记录器的名称
+
+    4. 日志过滤器 Filter
+       过滤记录器记录的信息
+
+
+
+二、 日志等级
+     在logging 模块中，分6个级别
+     - CRITICAL  50  严重错误
+     - ERROR     40  错误
+     - WARNING   30  警告
+     - INFO      20  一般的消息
+     - DEBUG     10  调试
+     - NOSET     0   默认未设置
+
+三、 应用的步骤
+    1) import logging
+    2) 创建或获取日志记录器 默认记录器的名称为root
+       logger = logging.getLogger('django.request')
+
+       # 设置日志记录器的等级
+       logger.setLevel(logging.INFO)
+
+       root_logger = logging.getLogger()
+
+    3) 创建formatter 格式化对象
+       f = Formatter(fmt='%(asctime)s %(levelname)s: %(message)s',
+                     datefmt='')
+
+    4) 创建处理器Handler
+       handler = StreamHandler()
+       handler.setFormatter(f)  # 设置处理器的格式化
+
+       # 设置处理器的等级
+       handler.setLevel(logging.INFO)
+
+    5）将处理器添加到日志记录器对象上
+       logger.addHandler(handler)
+
+    6) 在程序某一个功能点上， 通过日志记录器，来记录重要的信息
+       logger.info('xxxx')  # 记录的信息等级是INFO
+       logger.error('xxxx') # 记录信息的等级是 ERROR
+       logger.debug('.....') # 记录信息的等级是DEBUG
+
+
+
+
