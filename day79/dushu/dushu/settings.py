@@ -30,8 +30,8 @@ DB_CONFIG = {
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
-LOG_LEVEL = 'INFO' # 可选： DEBUG/WARNING/ERROR/CRITICAL
-LOG_FILE = 'book.log'  # 启用 FileHandler
+# LOG_LEVEL = 'INFO' # 可选： DEBUG/WARNING/ERROR/CRITICAL
+# LOG_FILE = 'book.log'  # 启用 FileHandler
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
