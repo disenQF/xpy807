@@ -1,0 +1,25 @@
+1. pip install scrapyd scrapyd-client
+2. 修改scrapy.cfg文件
+[settings]
+default = meinv.settings
+
+[deploy:800]
+url = http://localhost:6800/
+project = meinv
+
+3. 启动scrapyd
+
+4. 在meinv目录下 通过scrapyd-deploy 命令发布
+   scrapyd-deploy 800 -p meinv
+
+5. 通过json web server的接口启动爬虫
+   curl http://localhost:6800/schedule.json -d project=meinv -d spider=mv
+
+   此接口执行成功后，则会返回json数据，包含一个字段 jobid, 如jobid: 9019191019191911
+
+6. 通过 cancel.json接口停止爬虫job
+   curl http://localhost:6800/cancel.json -d job=9019191019191911
+
+7. 如果发布的项目有问题，则可以从scrapyd服务中删除
+   curl http://localhost:6800/delproject.json -d project=meinv
+

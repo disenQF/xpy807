@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for meinv project
+# Scrapy settings for xici project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -8,23 +8,32 @@
 #     https://doc.scrapy.org/en/latest/topics/settings.html
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
-import os
 
-BOT_NAME = 'meinv'
+BOT_NAME = 'xici'
 
-SPIDER_MODULES = ['meinv.spiders']
-NEWSPIDER_MODULE = 'meinv.spiders'
+SPIDER_MODULES = ['xici.spiders']
+NEWSPIDER_MODULE = 'xici.spiders'
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-# IMAGES_STORE = os.path.join(BASE_DIR, 'images')
-IMAGES_STORE = '/Users/apple/mv_images'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'meinv (+http://www.yourdomain.com)'
+USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) ' \
+             'Chrome/73.0.3683.103 Safari/537.36'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
+
+# REDIS的调度器
+SCHEDULER = "scrapy_redis.scheduler.Scheduler"
+
+# REDIS 去重的过滤类
+DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
+
+#  调度器的持久化 - 表示爬虫停止后，剩余的下载任务，等待爬虫再次开启时执行
+SCHEDULER_PERSIST = True
+
+# 配置REDIS连接
+REDIS_URL = 'redis://127.0.0.1:6379/8'  # 'redis://:password@127.0.0.1:6379/8'
+
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -32,7 +41,8 @@ ROBOTSTXT_OBEY = True
 # Configure a delay for requests for the same website (default: 0)
 # See https://doc.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-#DOWNLOAD_DELAY = 3
+DOWNLOAD_DELAY = 1
+
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -52,14 +62,14 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'meinv.middlewares.MeinvSpiderMiddleware': 543,
+#    'xici.middlewares.XiciSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'meinv.middlewares.MeinvDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+   'xici.middlewares.XiciDownloaderMiddleware': 543,
+}
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
@@ -69,11 +79,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-   # 'meinv.pipelines.MeinvPipeline': 300,
-   'meinv.pipelines.MvImagePipeline': 1,
-
-}
+#ITEM_PIPELINES = {
+#    'xici.pipelines.XiciPipeline': 300,
+#}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html

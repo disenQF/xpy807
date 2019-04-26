@@ -1,0 +1,64 @@
+2019-04-26 11:55:17 [scrapy.utils.log] INFO: Scrapy 1.6.0 started (bot: meinv)
+2019-04-26 11:55:17 [scrapy.utils.log] INFO: Versions: lxml 4.3.3.0, libxml2 2.9.9, cssselect 1.0.3, parsel 1.5.1, w3lib 1.20.0, Twisted 19.2.0, Python 3.6.1 (v3.6.1:69c0db5050, Mar 21 2017, 01:21:04) - [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)], pyOpenSSL 19.0.0 (OpenSSL 1.1.1b  26 Feb 2019), cryptography 2.6.1, Platform Darwin-18.5.0-x86_64-i386-64bit
+2019-04-26 11:55:17 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'meinv', 'LOG_FILE': 'logs/meinv/mv/1a1d502667d711e99f1d7831c1cc4a2e.log', 'NEWSPIDER_MODULE': 'meinv.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['meinv.spiders']}
+2019-04-26 11:55:18 [scrapy.extensions.telnet] INFO: Telnet Password: 5df4484992aa9794
+2019-04-26 11:55:18 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2019-04-26 11:55:18 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2019-04-26 11:55:18 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2019-04-26 11:55:18 [twisted] CRITICAL: Unhandled error in Deferred:
+2019-04-26 11:55:18 [twisted] CRITICAL: 
+Traceback (most recent call last):
+  File "/Users/apple/venv/xpy807/lib/python3.6/site-packages/twisted/internet/defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "/Users/apple/venv/xpy807/lib/python3.6/site-packages/scrapy/crawler.py", line 80, in crawl
+    self.engine = self._create_engine()
+  File "/Users/apple/venv/xpy807/lib/python3.6/site-packages/scrapy/crawler.py", line 105, in _create_engine
+    return ExecutionEngine(self, lambda _: self.stop())
+  File "/Users/apple/venv/xpy807/lib/python3.6/site-packages/scrapy/core/engine.py", line 70, in __init__
+    self.scraper = Scraper(crawler)
+  File "/Users/apple/venv/xpy807/lib/python3.6/site-packages/scrapy/core/scraper.py", line 71, in __init__
+    self.itemproc = itemproc_cls.from_crawler(crawler)
+  File "/Users/apple/venv/xpy807/lib/python3.6/site-packages/scrapy/middleware.py", line 53, in from_crawler
+    return cls.from_settings(crawler.settings, crawler)
+  File "/Users/apple/venv/xpy807/lib/python3.6/site-packages/scrapy/middleware.py", line 35, in from_settings
+    mw = create_instance(mwcls, settings, crawler)
+  File "/Users/apple/venv/xpy807/lib/python3.6/site-packages/scrapy/utils/misc.py", line 140, in create_instance
+    return objcls.from_crawler(crawler, *args, **kwargs)
+  File "/Users/apple/venv/xpy807/lib/python3.6/site-packages/scrapy/pipelines/media.py", line 68, in from_crawler
+    pipe = cls.from_settings(crawler.settings)
+  File "/Users/apple/venv/xpy807/lib/python3.6/site-packages/scrapy/pipelines/images.py", line 99, in from_settings
+    return cls(store_uri, settings=settings)
+  File "/Users/apple/venv/xpy807/lib/python3.6/site-packages/scrapy/pipelines/images.py", line 52, in __init__
+    download_func=download_func)
+  File "/Users/apple/venv/xpy807/lib/python3.6/site-packages/scrapy/pipelines/files.py", line 289, in __init__
+    self.store = self._get_store(store_uri)
+  File "/Users/apple/venv/xpy807/lib/python3.6/site-packages/scrapy/pipelines/files.py", line 333, in _get_store
+    return store_cls(uri)
+  File "/Users/apple/venv/xpy807/lib/python3.6/site-packages/scrapy/pipelines/files.py", line 47, in __init__
+    self._mkdir(self.basedir)
+  File "/Users/apple/venv/xpy807/lib/python3.6/site-packages/scrapy/pipelines/files.py", line 76, in _mkdir
+    os.makedirs(dirname)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/os.py", line 220, in makedirs
+    mkdir(name, mode)
+NotADirectoryError: [Errno 20] Not a directory: '/private/var/folders/3y/g8psq2gs48b0x_d0gtbb87w00000gn/T/meinv-1556250818-_uyu6xeu.egg/images'
