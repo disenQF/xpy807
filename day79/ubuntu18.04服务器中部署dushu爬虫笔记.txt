@@ -1,0 +1,66 @@
+在ubuntu的服务器，发布爬虫程序
+
+1. 确定python执行环境
+   sudo   apt update
+   sudo  apt install virtualenv
+   sudo apt install libpython3-dev
+   virtualenv  spider_venv
+   source spider_venv/bin/activated
+
+   安装mysql数据库
+   sudo apt install mysql-server
+   查看默认数据库的口令和用户名
+   cat /etc/mysql/debian.cnf
+
+   进入mysql之后，修改root的口令:
+   > use mysql
+   > update user set authentication_string=password(‘root’), plugin=‘mysql_native_password’
+     where user=‘root’
+
+   > exit;
+
+	修改服务器和客户端字符集
+   sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
+   在 [mysqld]下增加:
+     character-set-server = utf8
+
+   sudo vi /etc/mysql/conf.d/mysql.cnf
+   在[mysql]下增加：
+    default-character-set = utf8
+
+   重启mysql服务器
+     sudo service mysql restart
+
+    尝试使用root账号进入mysql中
+    mysql -uroot -proot
+
+    创建爬虫需要的数据库
+    create database stu1;
+
+
+2. 上传爬虫程序code
+   scp -R dushu disen@10.12.152.4: ~/spider/
+
+   在服务器上
+   cd ~/spider/dushu
+   source ~/spider_venv/bin/activate
+   (spider_venv) > pip install twisted scrapy  pymysql
+
+3. 编写sh或py脚本
+	run.sh
+    ————
+    #!/bin/bash
+    cd ~/spider/dushu
+    scrapy crawl book -s  CLOSESPIDER_PAGECOUNT=5
+    ------------------
+    sudo ln -s ~/spider/dushu/run.sh /usr/bin/start_spider
+    sudo chmod +x run.sh
+
+4. 编写定时任务，定时爬取数据
+    当爬虫5页数据时，则停止爬虫
+
+    vi book.crontab
+    30 0 * * *  start_spider
+
+    crontab  book.crontab  生成定时任务
+

@@ -1,0 +1,43 @@
+2019-04-26 14:18:19 [scrapy.utils.log] INFO: Scrapy 1.6.0 started (bot: meinv)
+2019-04-26 14:18:19 [scrapy.utils.log] INFO: Versions: lxml 4.3.3.0, libxml2 2.9.9, cssselect 1.0.3, parsel 1.5.1, w3lib 1.20.0, Twisted 19.2.0, Python 3.6.1 (v3.6.1:69c0db5050, Mar 21 2017, 01:21:04) - [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)], pyOpenSSL 19.0.0 (OpenSSL 1.1.1b  26 Feb 2019), cryptography 2.6.1, Platform Darwin-18.5.0-x86_64-i386-64bit
+2019-04-26 14:18:19 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'meinv', 'LOG_FILE': 'logs/meinv_1/mv/13a953de67eb11e9aede7831c1cc4a2e.log', 'NEWSPIDER_MODULE': 'meinv.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['meinv.spiders']}
+2019-04-26 14:18:19 [scrapy.extensions.telnet] INFO: Telnet Password: 3f917d5ffb768cdb
+2019-04-26 14:18:19 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2019-04-26 14:18:19 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2019-04-26 14:18:19 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2019-04-26 14:18:19 [scrapy.middleware] INFO: Enabled item pipelines:
+['meinv.pipelines.MvImagePipeline']
+2019-04-26 14:18:19 [scrapy.core.engine] INFO: Spider opened
+2019-04-26 14:18:19 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-04-26 14:18:19 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2019-04-26 14:18:49 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.meinv.hk/robots.txt> (failed 1 times): DNS lookup failed: no results for hostname lookup: www.meinv.hk.
+2019-04-26 14:19:19 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-04-26 14:20:19 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-04-26 14:20:24 [scrapy.crawler] INFO: Received SIGTERM, shutting down gracefully. Send again to force 
+2019-04-26 14:20:24 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2019-04-26 14:21:19 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-04-26 14:21:49 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.meinv.hk/robots.txt> (failed 2 times): User timeout caused connection failure: Getting http://www.meinv.hk/robots.txt took longer than 180.0 seconds..
+2019-04-26 14:22:19 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-04-26 14:23:19 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-04-26 14:24:19 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
